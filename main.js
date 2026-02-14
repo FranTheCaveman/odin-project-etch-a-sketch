@@ -9,8 +9,7 @@ let squareSize = 10;
  * Calculates the size of each square in a grid to fit within the canvas size
  */
 function calculateSquareSize(gridSize, canvasSize) {
-    squareSize = canvasSize / gridSize
-    console.log(squareSize);
+    squareSize = canvasSize / gridSize;
     return squareSize;
 }
 
@@ -52,7 +51,7 @@ function drawCanvas(gridSize) {
  */
 changeCanvasButton.addEventListener('click', (event) => {
     let isValid = false;
-    let errorMsg = ""
+    let errorMsg = "";
 
     while (!isValid) {
         gridSize = prompt(`${errorMsg}Enter a grid size between 1 and 100: `);
@@ -66,12 +65,12 @@ changeCanvasButton.addEventListener('click', (event) => {
         if (Number.isInteger(parseInt(gridSize, 10)) && gridSize >= 1 && gridSize <= 100) {
             canvas.replaceChildren(); // clear canvas
             drawCanvas(gridSize);
-            isValid = true
+            isValid = true;
             return gridSize;
         }
 
         else {
-            errorMsg = "Invalid input. "
+            errorMsg = "Invalid input. ";
         }
     }
 })
@@ -82,7 +81,6 @@ drawCanvas(gridSize);
 // c key toggles color change
 document.addEventListener("keydown", event => {
     if (event.key === "c") {
-        console.log("c pressed")
         document.querySelector('input').checked = (document.querySelector('input').checked ? false : true);
     }
 })
