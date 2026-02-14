@@ -1,0 +1,112 @@
+:root {
+    --mauve: #C6A0F6;
+    --yellow: #E6C283;
+    --white: rgb(248, 246, 242);
+    --black: #22202E;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--black);
+    color: var(--yellow);
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 0fr);
+    grid-template-rows: repeat(var(--rows), 0fr);
+    width: var(--canvasSize);
+    height: var(--canvasSize);
+    background-color: var(--white);
+    border: #C6A0F6 5px solid;
+    border-radius: 2px;
+}
+
+.square {
+    background-color: var(--white);
+    width: var(--squareSize);
+    height: var(--squareSize);
+}
+
+/* Container for buttons */
+
+.c-buttons {
+    display: flex;
+    align-items: center;
+    height: auto;
+    gap: 1rem;
+}
+
+/* Color toggle */
+
+#b-color-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+#b-color-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 1rem;
+    outline: solid 3px var(--mauve);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--white);
+    border-radius: 100%;
+    transition: .4s;
+}
+
+input:checked + .slider {
+  background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Button to change grid size */
+
+#b-change-grid-size {
+    padding: 12px;
+    font-weight: 700;
+    color: var(--mauve);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    background-color: var(--black);
+    border: solid 3px var(--mauve);
+    border-radius: 7px;
+    transition: 0.1s ease-in-out;
+}
+
+#b-change-grid-size:hover {
+    background-color: var(--mauve);
+    color: var(--black);
+}
